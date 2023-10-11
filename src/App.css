@@ -1,3 +1,231 @@
 .App {
   text-align: center;
 }
+
+.outer {
+  background-color: black;
+  width: 30%;
+  margin: 10px;
+  border-radius: 50px;
+  position: absolute;
+  right: 35%;
+  
+}
+
+.screen {
+  background-color: white;
+  width: 95%;
+  height: 780px;
+  border-radius: 50px;
+  margin: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.screen::-webkit-scrollbar {
+  display: none;
+}
+
+.images {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.accountName {
+  cursor: pointer;
+}
+
+.accountContainer {
+  display: flex;
+}
+
+.accountImg {
+  float: left;
+  height: 50px;
+  width: 30px;
+  margin-right: 13px;
+  margin-left: 10px;
+}
+
+.logo {
+  height: 100px;
+  float: left;
+  margin-right: 150px;
+  cursor: pointer;
+}
+
+.navbar {
+  width: 100%;
+  height: 20%;
+  background-color: white;
+  z-index: 1;
+}
+
+.navIcons {
+  display: flex;
+}
+
+.navHeart {
+  height: 100px;
+  width: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.navSend {
+  width: 25px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.box {
+  /* border-top: 1px solid silver; */
+}
+
+.storyContainer {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.storyContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.outerStory {
+  width: 100px;
+  height: 100px;
+}
+
+.accountStory {
+  width: 82px;
+  height: 82px;
+  transform: translate(0, -90px);
+  margin-left: 3px;
+}
+
+.loginLogo {
+  height: 150px
+}
+
+.usernameBar{
+  width: 70%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid silver;
+  border-radius: 4px;
+}
+
+.passwordBar{
+  width: 70%;
+  padding: 15px;
+  border: 1px solid silver;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.loginBtn {
+  width: 80%;
+  padding: 15px;
+  background-color: #1aa3ff;
+  border: 1px solid #1aa3ff;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background-color: #4db8ff;
+}
+
+.forgotDetails {
+  color: silver;
+  font-size: 12px;
+}
+
+.helpSignIn {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.iconsContainer {
+  display: flex;
+}
+
+.heart {
+  height: 30px;
+  width: 30px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.comment {
+  height: 26px;
+  width: 30px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.send {
+  height: 27px;
+  width: 30px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.bookmark {
+  height: 30px;
+  width: 30px;
+  float: left;
+  margin: 2px;
+  margin-left: 245px;
+  cursor: pointer;
+}
+
+.likes {
+  text-align: left;
+  font-size: 15px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.descContainer {
+  display: flex;
+}
+
+.userDescription {
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.viewComments {
+  text-align: left;
+  font-size: 14px;
+  margin: 5px;
+  color: grey;
+}
+
+.minutes {
+  text-align: left;
+  font-size: 12px;
+  margin: 5px;
+  margin-bottom: 10px;
+  color: grey;
+}

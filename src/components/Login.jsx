@@ -1,27 +1,37 @@
-import { useState } from "react";
+import logo from './images/instagram-new.webp';
 
 function Login(props) {
 
-    const [showLogin, setShowLogin] = useState(true);
+    const handleBtn = () => {
+        if (props.user && props.password !== '') {
+            props.setShowLogin(false);
+            props.setShow(true);
+        } 
+    }
 
     return (
         <div>
-            {showLogin ? 
+            {props.showLogin ? 
             <div>
-                <label>Username</label>
+                <img className="loginLogo" src={logo}/>
                 {/* MAKIN THE LOGIN DISAPPEAR WHEN USERNAME AND PASSWORD IS TYPED */}
-                <input onChange={(event) => (props.setUser(event.target.value), props.user, props.password ? setShowLogin(false) : null)} ></input>
+                <input className="usernameBar" placeholder="Username" onChange={(event) => (props.setUser(event.target.value))} ></input>
                 <br></br>
-                <label>Password</label>
-                <input type="password" onChange={(event) => (props.setPassword(event.target.value), props.user, props.password ? setShowLogin(false) : null)} ></input>
+                <input className="passwordBar" placeholder="Password" type="password" onChange={(event) => (props.setPassword(event.target.value))}></input>
+                <br></br>
+                <button className="loginBtn" onClick={handleBtn}>Log In</button>
+                <p className='forgotDetails'>Forgot your login details?</p>
+                <p className='helpSignIn'>Get help signing in</p>
                 </div>
                 :
                 ""
             }
-            {/* {props.user && props.password ? {}:<h3>Incorrect username or password</h3>} */}
-            {/* <button onClick={hideLogin}>Press</button> */}
         </div>
     )
 }
+
+// onChange={(event) => (props.setUser(event.target.value), props.user, props.password ? setShowLogin(false) : null)}
+
+// onChange={(event) => (props.setPassword(event.target.value), props.password, props.user? setShowLogin(false) : null)} 
 
 export default Login;

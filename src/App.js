@@ -1,60 +1,89 @@
+import React from 'react';
 import './App.css';
 import { useState } from 'react';
+
 import Login from './components/Login'
 import Api from './components/Api';
 import Navbar from './components/Navbar';
+import Story from './components/Story';
+import Account from './components/Account';
+
+import { AiOutlineHeart } from "react-icons/ai";
+import { FaRegComment } from "react-icons/fa";
+import { LuSend } from "react-icons/lu";
+import { BiBookmark } from "react-icons/bi";
 
 function App() {
 
   //THIS IS WHERE VANILLA JAVASCRIPT GOES
 
-  
-
   //STATE VARIABLES GO HERE
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState();
-  // const [loggedIn, setLoggedIn] = useState(false);
+  const [password, setPassword] = useState("");
   const [photos, setPhotos] = useState([]);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const[showLogin,setShowLogin] = useState(true);
-
+  const [showNav, setShowNav] = useState(true);
 
   Api(setPhotos)
 
   //OTHER VARIABLES
 
-  const hideLogin = () => {
-    { showLogin && setShowLogin(false)}
-  }
+  let prevScrollPos = window.scrollY;
+  window.onscroll = () => {
+    let currentScrollPos = window.scrollY;
+    if (prevScrollPos > currentScrollPos || currentScrollPos < 200) {
+      setShowNav(true);
+    } else {
+      setShowNav(false);
+    }
+    prevScrollPos = currentScrollPos;
+  };
 
   return (
     <div className="App">
-      <Navbar
-      // show={show}
-      // setShow={setShow}
-      />
-      <Login 
-      setUser={setUser} 
-      setPassword={setPassword} 
-      user= {user}
-      password={password}
-      />
-      {user && password ?
+      <div className='outer'>
+        <div className='screen'>
+          <Login 
+          setUser={setUser} 
+          setPassword={setPassword} 
+          user= {user}
+          password={password}
+          showLogin={showLogin}
+          setShowLogin={setShowLogin}
+          setShow={setShow}
+        />
+      { show ?
       <div>
-        {show}
-        <button onClick={hideLogin}>Hi</button>
+        {showNav ? <Navbar /> :""}
+        <Story user={user}/>
        {photos.map((photo, index) => {
         return (
-          <div key={index}>
-            <h4>{user}</h4>
-            <img src={photo.urls.regular} height="643px" width="1080px"/>
-            <h4>{photo.alt_description}</h4>
+          <div className='box' key={index}>
+            <div className='wholeBox'>
+              <Account/>
+              <img className='images' src={photo.urls.regular}/>
+              <div iconsContainer>
+              <AiOutlineHeart className='heart'/>
+              <FaRegComment className='comment'/>
+              <LuSend className='send'/>
+              <BiBookmark className='bookmark'/>
+              </div>
+              <p className='likes'>{Math.floor(Math.random()* 1000)} likes</p>
+              <div className='descContainer'>
+                <p className='userDescription'>the rock</p>
+                <p className='description'>{photo.alt_description}</p>
+              </div>
+              <p className='viewComments'>View all {Math.floor(Math.random()* 1000)} comments</p>
+              <p className='minutes'>{Math.floor(Math.random()* 10)} hours ago</p>
+            </div>
           </div>
         )
       })}
       </div>
-      :<h3>Incorrect username or password</h3>}
-      
+      : ""}
+        </div>
+      </div>
     </div>
   );
 }
