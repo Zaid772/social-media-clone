@@ -84,10 +84,6 @@
   cursor: pointer;
 }
 
-.box {
-  /* border-top: 1px solid silver; */
-}
-
 .storyContainer {
   display: flex;
   overflow-x: scroll;
